@@ -1,0 +1,283 @@
+@charset "utf-8";
+/* CSS Document */
+html	{	position: relative;
+			background-repeat: no-repeat;
+			background: -webkit-linear-gradient(right, #434343, #CECECE, #434343);
+			background: -o-linear-gradient(right, #434343, #CECECE, #434343);
+			background: -moz-linear-gradient(right, #434343, #CECECE, #434343);
+			background: -ms-linear-gradient(right, #434343, #CECECE, #434343);
+			background: linear-gradient(right, #434343, #CECECE, #434343);
+			background-size: cover;
+			overflow: hidden;
+		}
+body	{	font-family: "Arial Narrow", Arial;
+			width: 1100px;
+			height: 400px;	
+		}
+header	{	padding-top: 0px;
+			padding-bottom: 0px;
+			margin-top: -10px;
+			margin-left: -9px;
+			margin-right: -9px;
+			position:fixed;
+		}
+#logo	{	padding-top: 5px;
+			padding-bottom: 5px;
+		}
+#centerTexts	{	width: 82%;
+					margin: auto;			
+				}
+#navBar	{	width: 100%;
+			height: 31px;
+			z-index: 99;
+			position: fixed;
+			background-repeat: no-repeat;
+			background: -webkit-linear-gradient(#00C0AB, #009888);
+			background: -o-linear-gradient(#00C0AB, #009888);
+			background: -moz-linear-gradient(#00C0AB, #009888);
+			background: linear-gradient(#00C0AB, #009888);
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+
+#textBar	{	height: 31px;
+				margin: 0 auto;
+				position: fixed;
+				text-align: center;
+				padding-bottom: 0;
+				padding-top: 0;
+				position: fixed;
+				width: 100%;
+  				text-align: right;
+			}
+#textBar li	{	height: 30px;
+				width: 260px;
+				float: left;
+				text-align: center;
+				list-style: none;
+				font: normal bold;
+				padding: 0px;
+				margin: 0;
+			}
+#textBar a	{	padding: 4px 0;
+				text-decoration: none;
+				color: white;
+				font-weight: 500px;
+				font-size: 20px;
+				display: block;
+				font-style: normal;
+				font-family: "Arial Narrow", Arial;
+				border-left: 1px solid #006D62;
+			}
+#aboutus	{	border-right: 1px solid #006D62; }
+#textBar li:hover, a:hover {	background-color: #006D62; }
+#textBar li ul	{	display: none;
+					height: auto;
+					margin: 0 auto;
+					padding: 0px;
+				}
+#textBar li:hover ul	{	display: block; }
+#textBar li ul li	{	background-color: #009888; 
+						border: 1px solid #006D62;
+						border-left: 0px;
+						margin: -1px;
+					}
+#content {	width: 1000px;
+			height: 67%;
+			position: fixed;
+			background-color: #FFFFFF;
+			left: 12%;
+			padding-top: 12px;
+			padding-right: 20px;
+			padding-bottom: 12px;
+			padding-left: 20px;
+			margin-bottom: auto;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 195px;
+			overflow-y: auto;
+			z-index: -1;
+		}
+.floated-left
+			{
+				padding: 0em;
+				margin-right: 1em;
+				margin-left: 1em;
+				margin-bottom: 1em;
+				margin-top: 0em;
+				float: left;
+				border: 1px solid Black;
+			}	
+
+.floated-right
+			{
+				padding: 0em;
+				margin-right: 1em;
+				margin-left: 1em;
+				margin-bottom: 1em;
+				margin-top: 0em;
+				float: right;
+				border: 1px solid Black;
+				width: 250px; 
+				height: 250px;
+			}			
+#info	{ padding-bottom: 50px; }
+#cageArrange, #cageRules	{ text-align: center; }
+#numOfTiers { 
+			  position: relative;
+			  vertical-align: top; 
+			  float: left;
+			}
+#myimage {
+			border: 1px solid Black; 
+			position: relative; 
+			vertical-align: top; 
+
+		 }
+#dymanicTable {
+				position: relative;
+				vertical-align: top; 
+				float: left;
+			  }		 
+#submit, #sendEmail, #reset, #return, #getTable {
+			height: 31px;
+  			background: #3498db;
+  			background-repeat: no-repeat;
+			background: -webkit-linear-gradient(#00C0AB, #009888);
+			background: -o-linear-gradient(#00C0AB, #009888);
+			background: -moz-linear-gradient(#00C0AB, #009888);
+			background: linear-gradient(#00C0AB, #009888);
+ 			-webkit-border-radius: 5;
+  			-moz-border-radius: 5;
+  			border-radius: 5px;
+  			font-family: Arial;
+ 			color: #ffffff;
+  			font-size: 18px;
+ 			padding: 5px 30px 5px 30px;
+ 			border: solid #006D62 1px;
+  			text-decoration: none;
+  			margin-top: 1em;
+  			margin-right: 1em;
+			margin-left: 1em;
+			margin-bottom: 1em;
+			}
+
+#submit:hover, #sendEmail:hover, #reset:hover, #return:hover, #getTable:hover {
+ 			background: #006D62;
+  			text-decoration: none;
+			}
+#emailPage {	
+			padding-top: 50px;
+			text-align: center; 
+			}			
+.slideshow {
+			height: 220px;
+			text-align: center; 
+			position: relative;
+			border: 1px solid #006D62; 
+			box-shadow: 10px 10px 50px #006D62;
+			width: 800px;
+			margin: auto;
+			margin-top: 20px;
+		}	
+.slideshow figure{
+   margin: 0;
+   position: absolute;
+   opacity:0;
+}
+figure:nth-child(1) {
+  animation: xfade 18s 12s infinite;
+}
+figure:nth-child(2) {
+  animation: xfade 18s 6s infinite;
+}
+figure:nth-child(3) {
+  animation: xfade 18s 0s infinite;
+}
+@keyframes xfade{
+   0%{
+      opacity: 1;
+   }
+   33% {
+      opacity:1;
+   }
+   45%{
+      opacity: 0;
+   }
+   88% {
+      opacity:0;
+   }
+   100% {
+      opacity:1;
+   }
+}
+
+.multiColmAboutUS	{	margin: 0.9em 0em; }
+.colmAboutUs	{	padding-top: 50px;
+					padding-bottom: 40px;
+
+					-webkit-column-count: 3;
+					-moz-column-count: 3;
+					-o-column-count: 3;
+					-ms-column-count: 3;
+					column-count: 3;
+					
+					-webkit-column-gap: 30px;
+					-moz-column-gap: 30px;
+					-o-column-gap: 30px;
+					-ms-column-gap: 30px;
+					column-gap: 30px;
+					
+					-webkit-column-rule: 2px solid black;
+					-moz-column-rule: 2px solid black;
+					-o-column-rule: 2px solid black;
+					-ms-column-rule: 2px solid black;
+					column-rule: 2px solid black;
+				}
+
+#aboutCompany {
+				width: 900px;
+				margin: auto;
+				position: relative;
+				padding-top: 30px;
+				padding-bottom: 30px;
+	     		text-align: center; 
+	      }
+#tableHomePage{
+			width: 900px;
+			margin: auto;
+			position: relative;
+			padding-left: 10px;
+			padding-right: 10px;
+			text-align: center;			
+			}	      
+#tableBorder{	border-right: 2px solid black; }
+hr { 
+	width: 900px;
+    display: block;
+    margin: auto;
+    border-style: inset;
+    border-width: 1px;
+	}
+#gradiant-bottom{ 	width: 900px;
+					height: 25px; 
+				  	margin: auto;
+				  	background: -webkit-linear-gradient(#009888, #ffffff);
+					background: -o-linear-gradient(#009888, #ffffff);
+					background: -moz-linear-gradient(#009888, #ffffff);
+					background: linear-gradient(#009888, #ffffff);
+					padding-bottom: 10px;	
+				}	
+#gradiant-top{ 	width: 900px;
+				height: 25px; 
+				margin: auto;
+				background: -webkit-linear-gradient(#ffffff, #009888);
+				background: -o-linear-gradient(#ffffff, #009888);
+				background: -moz-linear-gradient(#ffffff, #009888);
+				background: linear-gradient(#ffffff, #009888);	
+				padding-top: 10px;
+				}					
+
+
+
+
