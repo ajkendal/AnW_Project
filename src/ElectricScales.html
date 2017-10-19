@@ -1,0 +1,148 @@
+<!doctype html>
+<!--Web Development Project-->
+<!--ElectricSales.html-->
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Electronic Scales</title>
+        <link href = "ProjectLogo.png" rel = "icon" type = "image/png">
+        <link href = "AnWStyleSheet.css" rel = "stylesheet" type = "text/css">
+        <script type="text/javascript">
+			
+			
+			function start(){
+				var button1 = document.getElementById("submit");
+				button1.addEventListener( "click", getWeight, false );
+			}
+			
+			function getWeight(){
+				var weight = parseInt(document.getElementById("weight").value);
+				
+				if (weight < 45){
+					auto44();
+				}
+				else if (weight < 301){
+					regal300();
+				}
+				else {
+					customScale(weight);
+				}
+			}
+			
+			function auto44(){
+				var scaleResults = document.getElementById("scalesResult");
+				scaleResults.innerHTML = "<p>Maximum weight capacity for the Auto 44 Scale is 44lbs<br>" +
+										 "For More information " +
+										 "<a href = 'Auto44.html'>Auto 44</a><br>" +
+										 "<img src='Auto 44 Table Model.jpg' width = '300'>";		
+			}
+			
+			function regal300(){
+				var scaleResults = document.getElementById("scalesResult");
+				scaleResults.innerHTML = "<p>Maximum weight capacity for the Regal 300 Scale is 300lbs<br>" +
+										 "For More information " +
+										 "<a href = 'Regal300.html'>Regal 300</a><br>" +
+										 "<img src='SSCI-220.JPG' width = '300'>";
+				
+			}
+			
+			function customScale(weight){
+				var scaleResults = document.getElementById("scalesResult");
+				scaleResults.innerHTML = "<h3>We will help create a scale tailored to your weight at " + weight +
+										 " lbs.<br>Please contact us via Email or Phone<br>" +
+										 "<a href = 'AboutUs.html'>Contacts</a>";
+			}
+        
+        
+        	window.addEventListener( "load", start, false );
+        </script>
+	</head>
+    
+    <body>
+    	<header id = "headerLogos">
+        	<table>
+            	<tr>
+					<td><img id = "logo" src = "ProjectLogo.png" alt = "AnW" width = "160" height = "160"></td>
+            		<td style = "vertical-align: bottom;">
+            			<h3>5500 N St Louis Ave<br>Chicago, IL 60625<br>
+                    		(773) 583-4050</h3>
+            		</td>
+            	</tr>
+            </table>
+            <div id = "navBar">
+                <div id = "centerTexts">
+                    <ul id = "textBar">
+                        <li><a href = "HomePage.html">Home</a></li>
+                        <li><a href = "CageDesign.html">Cage Design</a></li>
+                        <li><a href = "ElectricScales.html">Electronic Scales</a>
+                            <ul>
+                                <li><a href = "Auto44.html">Auto 44</a></li>
+                                <li><a href = "Regal300.html">Regal 300</a></li>
+                            </ul>
+                        </li>
+                        <li id = "aboutus"><a href = "AboutUs.html">About Us</a>
+                            <ul>
+                            	<li><a href = "AmandaK.html">A. Kendal-Brown</a></li>
+                            	<li><a href = "NatalyaK.html">N. Kodaneva</a></li>
+                                <li><a href = "WilliamL.html">W. Lemieux</a></li>
+                            </ul>
+                        </li>
+                    </ul> 
+                </div>
+            </div>
+        </header>
+        <div id = "content">
+        	<h1>Electronic Scales</h1>
+            <p>We supply two types of Electronic Scales the <b>Auto 44</b> and the <b>Regal 300</b> for your veterinary needs. Our Consultants will be able to help find the scale right for the animals that you treat most. Please take a look at some of the weight capacities for the scales we can provide.</p>
+            <table style="padding-top:50;">
+            	<col width="500">
+                <col width="500">
+            	<tr>
+                    <td valign="middle" style="text-align:center">
+                        <form action = "#">
+                    		<label><div><h3>Enter Animal Weight in lbs:</h3></div>
+                    			<div><input id = "weight" type = "number" min = "0" value="44"></div></label>
+                    			<div><input id = "submit" type = "button" value = "Submit"></div>
+                  		</form>
+                    </td>
+                    <td style="text-align:center">
+                        <div id="scalesResult"></div>
+                    </td>
+                </tr>
+            </table>
+            
+            <div class ="colmAboutUs">
+            	<p class="multiColmAboutUS">
+                    <img class = "floated-left" src = "Auto 44 Table Model.jpg" alt = "Auto44" width="100" style="margin-bottom: 50px;" />
+                    <h3  style = "text-align:center; text-decoration: underline;">Auto 44</h3>
+                    The scale can operate on AC power or a 9 volt DC battery.
+                    <a style = "text-indent: 2em; " id = "readMore" href = "Auto44.html">More Info</a>
+                </p>
+                <br>
+                <p class="multiColmAboutUS">
+                	
+                    <img class = "floated-left" src = "SSCI-220.JPG" alt = "Regal300" width="100" />
+                    <h3 id="h3Us" style = "text-align: center; text-decoration: underline;">Regal 300</h3>
+                    A reinforced, 1-piece, fully-welded stainless steel-covered frame creates 
+                the strongest platform.
+                    <a style = "text-indent: 2em;" id = "readMore" href = "Regal300.html">More Info</a>
+                    
+                </p>
+                <br>
+                <p class="multiColmAboutUS">
+                    <h3 style="text-align:center;">
+                    For Ordering Information
+                    <br>Please Contact Us via Email
+                    <br>or Call (773) 583-4050
+                    <br><a href = 'AboutUs.html'>Contacts</a>
+           			</h3>
+                    
+                </p>
+            </div>
+        </div>
+                
+                
+        </div>
+    </body>
+</html>

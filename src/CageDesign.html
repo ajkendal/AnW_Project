@@ -1,0 +1,264 @@
+<!doctype html>
+<!--Web Development Project-->
+<!--CageDesign.html-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Cage Design</title>
+        <link href = "ProjectLogo.png" rel = "icon" type = "image/png">
+        <link href = "AnWStyleSheet.css" rel = "stylesheet" type = "text/css">
+        
+		<script type="text/javascript">
+        	var image = new Image(); // Global variables
+           	image.src = "cage.png";
+           	var tiersTot;
+		var tierHt; 
+		var cageWd;
+		   
+		function start(){
+		  var button1 = document.getElementById("submit");
+		  button1.addEventListener( "click", getValues, false );
+		}
+           
+           
+           	function getValues()  {
+           	  var tierStr = document.getElementById( "tiersTot");
+           	  tiersTot = parseInt(tierStr.value);
+                  if (tiersTot <1 | tiersTot >4)  {alert("Invalid number of tiers");}
+                  else {
+                        cageArray = new Array(5*tiersTot);
+                          for ( var idx = 0; idx<tiersTot*5; idx=idx+5){
+                            cageArray[idx] = 0;   //  tier height   simulate 2 dim array
+                            cageArray[idx+1] = 0; //  cage 1 width 
+                            cageArray[idx+2] = 0; //  cage 2 width 
+                            cageArray[idx+3] = 0; //  cage 3 width 
+                            cageArray[idx+4] = 0; //  cage 4 width 
+                          }
+
+                        var text = "<form action =\"#\"><table><tr><th>Tier</th>";
+                        text += "<th>Tier<br>Height</th>";
+                        text += "<th>Cage 1<br>Width</th>";
+                        text += "<th>Cage 2<br>Width</th>";
+                        text += "<th>Cage 3<br>Width</th>";
+                        text += "<th>Cage 4<br>Width</th>";
+                        text += "</tr>"
+                        for (var idx = 0; idx < tiersTot*5; idx=idx+5) {
+                          text += "<tr><td>" + Math.floor(idx/5+1)+"</td>";
+                          text += "<td><input id = \"cageArray[" + Math.round(idx) + "]\" type = \"number\" value = \"18\" list = \"tsizes\"></td>";
+                          text += "<td><input id = \"cageArray[" + Math.round(idx+1) + "]\" type = \"number\" value = \"0\" list = \"csizes\"></td>";
+                          text += "<td><input id = \"cageArray[" + Math.round(idx+2) + "]\" type = \"number\" value = \"0\" list = \"csizes\"></td>";
+                          text += "<td><input id = \"cageArray[" + Math.round(idx+3) + "]\" type = \"number\" value = \"0\" list = \"csizes\"></td>";
+                          text += "<td><input id = \"cageArray[" + Math.round(idx+4) + "]\" type = \"number\" value = \"0\" list = \"csizes\"></td>";
+                          text += "</tr>"
+                        }
+                        text += "</table></form>";
+                        text += "<input id = \"getTable\" type = \"button\" value = \"Preview\">";
+
+                        document.getElementById("dynamicTable").innerHTML = text;
+
+			var button2 = document.getElementById("getTable");
+			button2.addEventListener( "click", getCages, false );
+                     }  // end else 				
+           	}  //  end function getValues
+
+           	function getCages()  {
+ 				
+                  var numStr = 0;
+                  numStr = document.getElementById( "cageArray[0]");
+                  cageArray[0] = parseInt(numStr.value);
+                  numStr = document.getElementById( "cageArray[1]");
+                  cageArray[1] = parseInt(numStr.value);
+                  numStr = document.getElementById( "cageArray[2]");
+                  cageArray[2] = parseInt(numStr.value);
+                  numStr = document.getElementById( "cageArray[3]");
+                  cageArray[3] = parseInt(numStr.value);
+                  numStr = document.getElementById( "cageArray[4]");
+                  cageArray[4] = parseInt(numStr.value);
+                  if (tiersTot > 1 ) {
+                    numStr = document.getElementById( "cageArray[5]");
+                    cageArray[5] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[6]");
+                    cageArray[6] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[7]");
+                    cageArray[7] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[8]");
+                    cageArray[8] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[9]");
+                    cageArray[9] = parseInt(numStr.value);
+                  if (tiersTot > 2 ) {
+                    numStr = document.getElementById( "cageArray[10]");
+                    cageArray[10] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[11]");
+                    cageArray[11] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[12]");
+                    cageArray[12] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[13]");
+                    cageArray[13] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[14]");
+                    cageArray[14] = parseInt(numStr.value);
+                  if (tiersTot > 3 ) {
+                    numStr = document.getElementById( "cageArray[15]");
+                    cageArray[15] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[16]");
+                    cageArray[16] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[17]");
+                    cageArray[17] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[18]");
+                    cageArray[18] = parseInt(numStr.value);
+                    numStr = document.getElementById( "cageArray[19]");
+                    cageArray[19] = parseInt(numStr.value);
+                    }  // end of if tiersTot>3
+                    }  // end of if tiersTot>2
+                  }    // end of if tiersTot>1
+                  
+                var tierHtTot = 0;
+                var tierWd = 0;
+                var maxTierWd = 0;
+		var badCage = false;  // check to see all cages are correct size
+		for (var ind = 0; ind < (tiersTot-1)*5+5; ind++){
+                  if ( (ind % 5) == 0 ) {
+                     tierHtTot += cageArray[ind];
+                     if ( (cageArray[ind+1] + cageArray[ind+2] + cageArray[ind+3] +cageArray[ind+4])  == 0){ badCage = true }
+                     tierWd = cageArray[ind+1] + cageArray[ind+2] + cageArray[ind+3] +cageArray[ind+4];
+                     if ( tierWd > maxTierWd ) { maxTierWd = tierWd 
+                     }  // end if > max
+                  } //    end if mod 5
+                  switch (cageArray[ind]){
+                     case 0: break;
+                     case 18: break;
+                     case 24: break;
+                     case 30: break;
+                     case 36: break;
+                     default: 
+                        badCage = true;
+                        break;
+                  }  // end switch
+                 }  // end for
+                if (badCage === true) { alert("Invalid cage size");}
+                else {
+
+
+
+                    var canHtInt = Math.round(  tierHtTot * 5);  //  each tier is 5 pixels times height
+                    var canHtStr = canHtInt.toString();
+                    var canWdInt = Math.round(  maxTierWd * 5);  //  each tier is 5 pixels times max width
+                    var canWdStr = canWdInt.toString();
+
+
+
+		    var printCanvas = document.getElementById("printCanvas");
+		    printCanvas.innerHTML = "<canvas id = 'myimage' width = "+canWdStr+" height = "+canHtStr+"></canvas>" +
+				 	"<h3 style='text-align:center;'>" +
+              				"For Ordering Information" +
+                    			"<br>Please Contact Us via Email" +
+                    			"<br>or Call (773) 583-4050</h3>";
+
+
+
+
+
+
+            	var tierPos = 0;  // combined height of lower tiers (bottom of this tier for draw)
+                var cagePos = 0;  // combined width of prev placed cages
+                var tierHt = 0;   // height of current tier
+                var cageWd = 0;   // width of current cage
+                for (var tierNo = 0; tierNo < tiersTot*5; tierNo=tierNo+5) {
+                  tierHt = cageArray[tierNo];
+                  cagePos =0;
+                  for (var cageNo = 1; cageNo <5; cageNo++) {
+                    cageWd = cageArray[tierNo + cageNo];  // simulate 2d array  tierNo is 0,5,10,15  cage is 1,2,3,4 plus tierNo
+                      if (cageWd >0 ) {
+                        drawCages( canHtInt -tierPos-tierHt*5, cagePos*5, tierHt*5, cageWd*5);
+                        cagePos = cagePos + cageWd;
+                      } // end fi cagewd
+                   }  // end for cageno
+                   tierPos = tierPos + tierHt * 5  //  using 5 pixels per inch
+                 } // end for tierno
+                }  // end else
+
+
+
+              }  // end of function getCages
+
+
+          	function drawCages( ypos, xpos, height, width){
+             	var canvas = document.getElementById("myimage");
+            	var context = canvas.getContext("2d")
+             	context.drawImage(image, xpos,ypos, width,height );
+           	} // end function draw
+              
+             
+		window.addEventListener( "load", start, false );
+        </script>
+	</head>
+    
+    <body>
+    	<header id = "headerLogos">
+        	<table>
+            	<tr>
+					<td><img id = "logo" src = "ProjectLogo.png" alt="AnW" width = "160" height = "160"></td>
+            		<td style = "vertical-align: bottom;">
+            			<h3>5500 N St Louis Ave<br>Chicago, IL 60625<br>
+                    		(773) 583-4050</h3>
+            		</td>
+            	</tr>
+            </table>
+            <div id = "navBar">
+                <div id = "centerTexts">
+                    <ul id = "textBar">
+                        <li><a href = "HomePage.html">Home</a></li>
+                        <li><a href = "CageDesign.html">Cage Design</a></li>
+                        <li><a href = "ElectricScales.html">Electronic Scales</a>
+                            <ul>
+                                <li><a href = "Auto44.html">Auto 44</a></li>
+                                <li><a href = "Regal300.html">Regal 300</a></li>
+                            </ul>
+                        </li>
+                        <li id = "aboutus"><a href = "AboutUs.html">About Us</a>
+                           <ul>
+                            	<li><a href = "AmandaK.html">A. Kendal-Brown</a></li>
+                            	<li><a href = "NatalyaK.html">N. Kodaneva</a></li>
+                                <li><a href = "WilliamL.html">W. Lemieux</a></li>
+                            </ul>
+                        </li>
+                    </ul> 
+                </div>
+            </div>
+        </header>
+        <datalist id="csizes">
+        <option value="0" label="0"></option>
+        <option value="18" label="18"></option>
+        <option value="24" label="24"></option>
+        <option value="30" label="30"></option>
+        <option value="36" label="36"></option>
+        </datalist>
+        <datalist id="tsizes">
+        <option value="18" label="18"></option>
+        <option value="24" label="24"></option>
+        <option value="30" label="30"></option>
+        <option value="36" label="36"></option>
+        </datalist>
+		<div id = "content">
+        	<h1>Cage Arrangement Design</h1>
+           <div><img class = "floated-right" src = "CagesHomePage.png" alt = "Cages image"/> 
+              <h2 id ="cageArrange">Cage Arrangement Rules</h2>
+
+                 Cage height and widths are 18,24,30,36. Cages must be attached with provided brackets.
+                 They are arranged in tiers, each cage in a tier must be the same height.
+                 You may have as may tiers as you like (this mockup can only show four) but their combined height must be less than the ceiling height. Keep in mind, you will be lifting animals in and out of these cages.
+                 It is suggested that shorter & narrow cages be on top with taller & wider cages on the bottom.
+
+                  <form action = "#">
+                    <div align="center"><label><b>Enter number of tiers:</b>
+                    <input id = "tiersTot" type = "number" min = "1" value="1" max = "4"></label>
+                    <input id = "submit" type = "button" value = "Submit">
+                    </div>
+                  </form>
+
+                </div>
+                <div align="center" id = "dynamicTable"></div>
+                <div align="center" id = "printCanvas"></div>        
+
+         </div>
+    </body>
+</html>
